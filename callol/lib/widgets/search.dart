@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class LoddsSearchBar extends StatefulWidget {
 
-  final String text;
   final context;
-  List itensForSearch;
+  final controller;
 
   LoddsSearchBar({
-    @required this.text,
     @required this.context,
-    @required this.itensForSearch
+    @required this.controller,
   });
 
   @override
@@ -17,26 +15,6 @@ class LoddsSearchBar extends StatefulWidget {
 }
 
 class _LoddsSearchBarState extends State<LoddsSearchBar> {
-
-  List itens = [];
-  List filteredItens = [];
-  bool isSearching = false;
-
-  @override
-  void initState() {
-    setState(() {
-      itens = filteredItens = widget.itensForSearch;
-    });
-    super.initState();
-  } 
-
-  void _filterItens(value) {
-    setState(() {
-      filteredItens = itens.where((country) {
-        return country['name'].toLowerCase().contains(value.toLowerCase());
-      }).toList();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +37,7 @@ class _LoddsSearchBarState extends State<LoddsSearchBar> {
         child: Padding(
           padding: EdgeInsets.only(left:10, right:12,),
           child: TextField(
-            onChanged: (value) => _filterItens(value),
+            controller: widget.controller,
             decoration: InputDecoration(
               border:InputBorder.none,
               hintText:"Buscar",
