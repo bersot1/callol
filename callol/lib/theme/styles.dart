@@ -5,7 +5,7 @@ const brightness = Brightness.light;
 const primaryColor = Color(0xFF5ea4ab);
 const accentColor = Color(0xFFCEE3E5);
 
-ThemeData appTheme() {
+ThemeData loddsTheme() {
   return ThemeData(
     brightness: brightness,
     textTheme: new TextTheme(

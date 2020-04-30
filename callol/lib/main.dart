@@ -1,19 +1,21 @@
-import 'package:callol/pages/details-league.page.dart';
-import 'package:callol/pages/main.page.dart';
-
-import 'package:callol/pages/styles.dart';
+import 'package:callol/pages/detailsLeague.dart';
+import 'package:callol/pages/login.dart';
+import 'package:callol/splashScreen.dart';
+import 'package:callol/theme/styles.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(SplashHandler());
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Call LOL',
+      title: 'Lodds',
       debugShowCheckedModeBanner: false,
-      theme: appTheme(),
-      home: DetailsLeaguePage(),
+      theme: loddsTheme(),
+      home: LoginPage(),
     );
   }
+
 }
